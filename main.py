@@ -24,6 +24,8 @@ clock = pygame.time.Clock()
 while not close_screen:
     # --- Main event loop
     for event in pygame.event.get(): # User did something
+
+
         if event.type == pygame.QUIT: # If user clicked close
             close_screen = True # Flag that we are done so we exit this loop
 
