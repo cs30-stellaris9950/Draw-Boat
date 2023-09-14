@@ -35,6 +35,8 @@ def testDraw():
     pygame.draw.line(screen, BLACK, (rand_x - 100, rand_y), (rand_x + 200, rand_y), 2)
     pygame.draw.arc(screen, BLACK, (rand_x - 100, rand_y - 100, 200, 200), PI, 1.5 * PI, 2)
     pygame.draw.arc(screen, BLACK, (rand_x, rand_y - 100, 200, 200), 1.5 * PI, 0, 2)
+    pygame.draw.polygon(screen, BLACK, [[rand_x, rand_y - 75], [rand_x + 50, rand_y - 125], [rand_x + 50, rand_y - 25]], 2)
+    pygame.draw.line(screen, BLACK, (rand_x + 50, rand_y - 25), (rand_x + 50, rand_y), 2)
     pygame.display.flip()
 
 
