@@ -19,6 +19,7 @@ pygame.display.set_caption("Draw")
 close_screen = False
 
 # Used to manage how fast the screen updates
+
 clock = pygame.time.Clock()
 
 # First, clear the screen to white. Don't put other drawing commands above this,
@@ -27,16 +28,32 @@ screen.fill(WHITE)
 pygame.display.flip()
 
 
+# this is testing
 def testDraw():
     rand_x = random.randrange(10, 600)
     rand_y = random.randrange(10, 400)
-    # pygame.draw.rect(screen, BLACK, [rand_x, rand_y, 100, 100], 2)
-    pygame.draw.line(screen, BLACK, (rand_x, rand_y + 100), (rand_x + 100, rand_y + 100), 2)
-    pygame.draw.line(screen, BLACK, (rand_x - 100, rand_y), (rand_x + 200, rand_y), 2)
-    pygame.draw.arc(screen, BLACK, (rand_x - 100, rand_y - 100, 200, 200), PI, 1.5 * PI, 2)
-    pygame.draw.arc(screen, BLACK, (rand_x, rand_y - 100, 200, 200), 1.5 * PI, 0, 2)
-    pygame.draw.polygon(screen, BLACK, [[rand_x, rand_y - 75], [rand_x + 50, rand_y - 125], [rand_x + 50, rand_y - 25]], 2)
-    pygame.draw.line(screen, BLACK, (rand_x + 50, rand_y - 25), (rand_x + 50, rand_y), 2)
+    colors = [BLACK, WHITE, GREEN, RED, BLUE]
+    # color_pick = BLACK
+    color_pick = colors[random.randrange(0,5)]
+    # pygame.draw.rect(screen, color_pick, [rand_x, rand_y, 100, 100], 2)
+    pygame.draw.line(screen, color_pick, (rand_x, rand_y + 100), (rand_x + 100, rand_y + 100), 2)
+    pygame.draw.line(screen, color_pick, (rand_x - 100, rand_y), (rand_x + 200, rand_y), 2)
+    pygame.draw.arc(screen, color_pick, (rand_x - 100, rand_y - 100, 200, 200), PI, 1.5 * PI, 2)
+    pygame.draw.arc(screen, color_pick, (rand_x, rand_y - 100, 200, 200), 1.5 * PI, 0, 2)
+    pygame.draw.polygon(screen, color_pick, [[rand_x, rand_y - 75], [rand_x + 50, rand_y - 125], [rand_x + 50, rand_y - 25]], 2)
+    pygame.draw.line(screen, color_pick, (rand_x + 50, rand_y - 25), (rand_x + 50, rand_y), 2)
+    pygame.display.flip()
+
+def drawShip(color, position_x, position_y):
+    colors = [BLACK, WHITE, GREEN, RED, BLUE]
+    color_pick = colors[random.randrange(0,5)]
+    # pygame.draw.rect(screen, color_pick, [rand_x, rand_y, 100, 100], 2)
+    pygame.draw.line(screen, color, (position_x, position_y + 100), (position_x + 100, position_y + 100), 2)
+    pygame.draw.line(screen, color, (position_x - 100, position_y), (position_x + 200, position_y), 2)
+    pygame.draw.arc(screen, color, (position_x - 100, position_y - 100, 200, 200), PI, 1.5 * PI, 2)
+    pygame.draw.arc(screen, color, (position_x, position_y - 100, 200, 200), 1.5 * PI, 0, 2)
+    pygame.draw.polygon(screen, color, [[position_x, position_y - 75], [position_x + 50, position_y - 125], [position_x + 50, position_y - 25]], 2)
+    pygame.draw.line(screen, color, (position_x + 50, position_y - 25), (position_x + 50, position_y), 2)
     pygame.display.flip()
 
 
@@ -52,8 +69,12 @@ while not close_screen:
             testDraw()
     # --- Game logic should go here
 
+    # for i in range(100):
+    #     testDraw()
     # --- Drawing code should go here
-
+    drawShip(BLACK, 500, 200)
+    drawShip(RED, 200, 200)
+    drawShip(GREEN, 400, 300)
     # --- Go ahead and update the screen with what we've drawn.
     # pygame.display.flip()
 
@@ -61,13 +82,6 @@ while not close_screen:
     clock.tick(60)
 
 
-
-
-def drawShip(size, positionX, positionY):
-    pygame.draw.rect(screen, BLACK, [20, 20, 250, 100], 2)
-    pygame.display.flip()
-    if size == 'small':
-        print("User pressed a key.")
 
 
 
